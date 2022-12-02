@@ -1,6 +1,9 @@
 name: Deploy to EC2
 
-on: [push]
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   deploy:
@@ -16,4 +19,4 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_KEY }}
           source: "server/*"
-          target: "app/server"
+          target: "app/"
