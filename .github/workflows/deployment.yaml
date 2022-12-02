@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Deploy server code
-    runs-on: [self-hosted, parrot-echo]
+    runs-on: [self-hosted, linux, X64, parrot-echo]
     steps:
       - uses: actions/checkout@master
       - name: Copy files from server folder
