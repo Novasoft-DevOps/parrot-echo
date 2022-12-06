@@ -29,6 +29,8 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd ./dev
+            export NVM_DIR="$HOME/.nvm"
+            +  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm install 8 && nvm use 8
             npm i -g pm2
             npm ci
