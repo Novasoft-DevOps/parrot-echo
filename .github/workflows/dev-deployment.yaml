@@ -20,14 +20,15 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           source: "server/*"
           target: "dev/"
-      # - name: Run code with PM2
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SERVER_HOST }}
-      #     username: ${{ secrets.SERVER_USERNAME }}
-      #     key: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.SERVER_KEY }}
-      #     script: |
-      #       cd ./dev
-      #       pm2 start ecosystem.config.js
+      - name: Run code with PM2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.SERVER_KEY }}
+          script: |
+            cd ./dev/server
+            npm ci
+            pm2 start ecosystem.config.js
             
