@@ -28,7 +28,7 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd ./dev
+            cd ./dev/server
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             nvm install 8 && nvm use 8
