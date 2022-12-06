@@ -1,6 +1,5 @@
 'use strict'
 const http = require('http')
-const https = require('https')
 const logger = require('../util/logger')
 const { version, description } = require('../package.json')
 
@@ -25,11 +24,6 @@ module.exports = (app) => {
       //   cert: fs.readFileSync('cert/cert.pem') || null,
       //   key: fs.readFileSync('cert/key.pem') || null
     }
-    https
-      .createServer(options, app)
-      .listen(httpsPort)
-      .on('error', onError)
-      .on('listening', onListening)
     // Liked the banner? http://patorjk.com/software/taag/#p=display&f=Lean
     logger.info(`
     _/_/_/                                              _/      _/_/_/_/            _/                 

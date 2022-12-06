@@ -4,8 +4,8 @@ const ping = async (_req, res) => {
   res.status(200).json({
     ok: true,
     message: {
-      en: 'It\'s Alive!',
-      es: 'Está vivo',
+      en: 'Online',
+      es: 'En Linea',
       pt: 'Está vivo'
     },
     name,
