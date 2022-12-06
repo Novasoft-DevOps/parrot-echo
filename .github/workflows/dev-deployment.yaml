@@ -26,7 +26,8 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.PASSWORD }}
+          port: 22
           script: |
             cd ./dev/server
-            ls
+            ls -al
             
