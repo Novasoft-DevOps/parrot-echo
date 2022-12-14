@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - dev
+      - release-*
 
 jobs:
   deploy:
@@ -19,7 +19,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           key: ${{ secrets.SERVER_KEY }}
           source: "server/*"
-          target: "dev/"
+          target: "prod/"
       - name: Run code with PM2
         uses: appleboy/ssh-action@master
         with:
@@ -28,11 +28,11 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd ./dev/server
+            cd ./prod/server
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             nvm install 8 && nvm use 8
             npm i -g pm2
             npm ci
-            pm2 start ecosystem.config.js --only dev
+            pm2 start ecosystem.config.js --only prod
             
