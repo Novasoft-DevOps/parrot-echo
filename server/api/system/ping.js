@@ -6,7 +6,8 @@ const ping = async (_req, res) => {
     message: {
       en: 'Online',
       es: 'En Linea',
-      pt: 'Está vivo'
+      pt: 'Está vivo',
+      info: 'Hello World'
     },
     name,
     description,
