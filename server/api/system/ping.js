@@ -8,7 +8,7 @@ const ping = async (_req, res) => {
       es: 'En Linea',
       pt: 'Está vivo',
       info: 'Hello World',
-      env: 'STAGE (branch master)'
+      env: 'PRODUCTION (branch release-01)'
     },
     name,
     description,
